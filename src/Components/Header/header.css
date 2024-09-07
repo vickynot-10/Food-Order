@@ -1,0 +1,84 @@
+#header-container {
+    background-color: white;
+    min-height: 15dvh;
+    max-height: 20dvh;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+#input-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#input-boxes::after {
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    position: absolute;
+    left: 38%;
+    top: 49%;
+    background-color: red;
+    transform: translate(-38%, -49%);
+}
+
+#select-elem-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#select-elem-container span {
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translate(-2%, -50%);
+    color: #ff7400;
+}
+
+#select-tag {
+    width: 200px;
+    height: 54px;
+    border: 1px solid black;
+    border-right: unset;
+    padding-left: 30px;
+}
+
+#search-input {
+    width: 300px;
+    height: 50px;
+    padding-left: 50px;
+    outline: none;
+    border: 1px solid black;
+    border-left: unset;
+}
+
+#search-input-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#search-glass {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+}
+
+#search-input:focus {
+    border-left: none !important;
+    box-shadow: none;
+}
+
+#login-p {
+    cursor: pointer;
+}

@@ -1,0 +1,67 @@
+#choose-options-div {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+#options-btn {
+    border: unset;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    background-color: unset;
+    cursor: pointer;
+}
+
+#opt-btn-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#icon-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fffdaf;
+}
+
+#options-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    color: red;
+}
+
+.active::before {
+    content: ' ';
+    position: absolute;
+    height: 1px;
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    width: 0px;
+    animation: WidthLine linear 0.2s forwards;
+}
+
+@keyframes WidthLine {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}

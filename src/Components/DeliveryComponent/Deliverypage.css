@@ -1,0 +1,121 @@
+#delivery-page-container {
+    min-height: 100dvh;
+    height: auto;
+    width: 100%;
+}
+
+#food-ins-text {
+    background-color: #FDF4F4;
+}
+
+#brand-text p {
+    font-size: 25px;
+    margin: auto;
+    padding: 20px;
+}
+
+#food-ins-text p {
+    font-size: 25px;
+    margin: auto;
+    padding: 20px;
+}
+
+#delivery-container {
+    width: 100%;
+    min-height: 50dvh;
+    height: auto;
+    max-height: 55dvh;
+    background-color: #FDF4F4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#brand-container {
+    width: 100%;
+    height: 50dvh;
+    height: auto;
+    max-height: 55dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#brand-items-div,
+#foods-order {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+#foods-order::-webkit-scrollbar,
+#brand-items-div::-webkit-scrollbar {
+    display: none;
+}
+
+#foods-order-div,
+#brands-order-div {
+    width: 100%;
+    height: 30dvh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+#food-items,
+#brand-items {
+    margin: 0 8px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#food-items img,
+#brand-items img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px grey;
+}
+
+#prev-btn,
+#prev-order-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: unset;
+    box-shadow: 0 2px 15px gray;
+    cursor: pointer;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(-10%, -50%);
+    z-index: 5;
+}
+
+#next-btn,
+#next-order-btn {
+    width: 40px;
+    height: 40px;
+    border: unset;
+    box-shadow: 0 2px 15px gray;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-90%, -50%);
+    z-index: 5;
+}
