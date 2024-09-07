@@ -3,17 +3,76 @@
     grid-template-columns: auto auto auto;
     min-height: 30dvh;
     height: auto;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     gap: 20px;
+}
+
+#add-cart-img-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0%;
+}
+
+#plus-icon {
+    position: absolute;
+    top: 88%;
+    left: 74%;
+    transform: translate(-74%, -88%);
+    z-index: 300;
+}
+
+#plus-icon:hover {
+    background-color: black;
+}
+
+#minus-icon {
+    position: absolute;
+    top: 88%;
+    right: 74%;
+    transform: translate(74%, -88%);
+    z-index: 300;
+}
+
+#add-food-btn {
+    height: 50px;
+    width: 130px;
+    position: absolute;
+    top: 100%;
+    cursor: pointer;
+    color: #EF4F5F;
+    border: 1px solid #EF4F5F;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+#delivery-in-p {
+    width: 80%;
+    color: #1C1C1C;
+    margin: auto;
+    height: 50px;
+    margin-top: 10px;
+    font-weight: lighter;
 }
 
 #food-hotel-items {
     width: 300px;
     border-radius: 20px;
     cursor: pointer;
-    min-height: 250px;
+    min-height: 30vh;
     height: auto;
-    max-height: 270px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,6 +86,7 @@
 #hotel-name {
     color: black;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 #hotel-ratings-div {

@@ -1,5 +1,5 @@
 import './footer.css';
-// import { LanguageOutlined } from '@mui/icons-material';
+import  LanguageOutlined  from '@mui/icons-material/LanguageOutlined';
 
 export function Footer(){
     const AboutTomatoArr=["Who We Are","Blog","Work with us",
@@ -11,11 +11,21 @@ export function Footer(){
     return(
         <div id="footer-container">
             <div id="footer-title">
-                <p>Tomato</p>
+                <p id='footer-tomato-header'>Tomato</p>
                 <div id="country-selec">
-                    <button>India</button>
-                    <button>English</button>
-                    {/* <LanguageOutlined /> */}
+                <div id='country-selection-btn'>
+                        {/* <span> <LanguageOutlined sx={{
+                        height:'16px',
+                        width:'16px',marginTop:'5px',marginRight:'5px'
+                    }} /></span>  */}
+                    <p>India</p></div>
+                    <div id='language-selection-btn'>
+                        <span> <LanguageOutlined sx={{
+                        height:'16px',
+                        width:'16px',marginTop:'5px',marginRight:'5px'
+                    }} /></span> 
+                    <p>English</p></div>
+                      
                 </div>
             </div>
             <div id='footer-main'>
@@ -23,8 +33,8 @@ export function Footer(){
                     <p id='footer-contents-header'>About Tomato</p>
                     {
                         AboutTomatoArr.map((val,ind)=>{
-                            return <div id='footer-main-contents'>
-                                <p key={ind} id='footer-arr-contents' > {val} </p>
+                            return <div id='footer-main-contents' key={ind} >
+                                <p  id='footer-arr-contents' > {val} </p>
                             </div>
                         })
                     }
@@ -33,8 +43,8 @@ export function Footer(){
                     <p id='footer-contents-header'>Tomaverse</p>
                     {
                         TomaverseArr.map((val,ind)=>{
-                            return <div id='footer-main-contents'>
-                                <p key={ind} id='footer-arr-contents' > {val} </p>
+                            return <div id='footer-main-contents' key={ind}>
+                                <p  id='footer-arr-contents' > {val} </p>
                             </div>
                         })
                     }
@@ -43,8 +53,8 @@ export function Footer(){
                     <p id='footer-contents-header'>For Restaurant</p>
                     {
                         forRestaurantArr.map((val,ind)=>{
-                            return <div id='footer-main-contents'>
-                                <p key={ind} id='footer-arr-contents' > {val} </p>
+                            return <div id='footer-main-contents' key={ind}>
+                                <p  id='footer-arr-contents' > {val} </p>
                             </div>
                         })
                     }
@@ -53,8 +63,8 @@ export function Footer(){
                     <p id='footer-contents-header'>Learn More</p>
                     {
                         learnMoreArr.map((val,ind)=>{
-                            return <div id='footer-main-contents'>
-                                <p key={ind} id='footer-arr-contents' > {val} </p>
+                            return <div id='footer-main-contents'  key={ind}>
+                                <p id='footer-arr-contents' > {val} </p>
                             </div>
                         })
                     }

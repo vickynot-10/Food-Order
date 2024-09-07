@@ -3,7 +3,8 @@
     min-height: 15dvh;
     max-height: 20dvh;
     height: auto;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,29 +15,40 @@
     display: flex;
     flex-direction: row;
     justify-content: unset;
+}
+
+#search-input-container {
     position: relative;
     top: 0;
     left: 0;
 }
 
-#input-boxes::after {
+#search-input-container::after {
     content: ' ';
     height: 20px;
-    width: 2px;
+    width: 1px;
     position: absolute;
-    left: 38%;
+    left: 2%;
     top: 49%;
     background-color: red;
-    transform: translate(-38%, -49%);
+    transform: translate(-2%, -49%);
 }
 
-#select-elem-container {
+#search-items-div {
+    background-color: white;
+    z-index: 50;
+    min-height: 10vh;
+    width: auto;
+    height: auto;
+}
+
+#select-tag-div {
     position: relative;
     top: 0;
     left: 0;
 }
 
-#select-elem-container span {
+#location-icon {
     position: absolute;
     left: 2%;
     top: 50%;
@@ -61,16 +73,11 @@
     border-left: unset;
 }
 
-#search-input-container {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-
 #search-glass {
     position: absolute;
     left: 5%;
     top: 50%;
+    color: #ff7400;
     transform: translate(-5%, -50%);
 }
 
@@ -79,6 +86,42 @@
     box-shadow: none;
 }
 
-#login-p {
+#tomato-header {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    transform: skewX(-15deg);
+}
+
+#login-p,
+#signup-p {
     cursor: pointer;
+    color: #696969;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+#search-input-entire-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+}
+
+#search-item-input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+
+#search-items-container {
+    min-height: 10vh;
+    background-color: white;
+    z-index: 50;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0%;
 }

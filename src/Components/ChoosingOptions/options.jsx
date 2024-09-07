@@ -9,6 +9,7 @@ import { OptionsContext } from '../../Contexts/context';
 export function ChooseOptions(){
     const {isActive,setActive} = useContext(OptionsContext)
     return(
+        <div id='choose-opt-container'>
         <div id="choose-options-div">
             <div id='opt-btn-div'>
                 <motion.div
@@ -54,6 +55,7 @@ export function ChooseOptions(){
                     <Link to="/nightlife"  className={ isActive==='nightlife' ? 'active' : " "  }>Night Life</Link>
                 </p>
             </div>
+        </div>
         </div>
     )
 }

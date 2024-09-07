@@ -1,0 +1,112 @@
+#hotelpage-container {
+    width: 80%;
+    margin: auto;
+    min-height: 100vh;
+    height: auto;
+}
+
+#hotel-name-header {
+    color: #1C1C1C;
+}
+
+#hotel-subtexts-header {
+    color: #494949;
+    font-size: 16px;
+}
+
+#hotel-subtexts-header2 {
+    color: #9C9C9C;
+    font-size: 16px;
+}
+
+#hotel-contents {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#hotel-imgs {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#hotel-imgs img {
+    cursor: pointer;
+}
+
+#main-hotel-img img {
+    height: 100%;
+    width: 550px;
+}
+
+#secondary-hotel-img {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+#secondary-hotel-img img {
+    height: 30vh;
+    width: 180px;
+    margin: 2px 10px;
+}
+
+#third-hotel-img img {
+    height: 100%;
+    width: 180px;
+}
+
+#direction-share-button {
+    display: flex;
+    flex-direction: row;
+}
+
+#direction-share-button div {
+    width: 100px;
+    margin: 0 10px 0 0;
+    border-radius: 5px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 10px;
+}
+
+#div-for-sticky {
+    position: sticky;
+    top: 0%;
+    z-index: 1000;
+    background-color: white;
+    left: 0%;
+}
+
+#about-header-div {
+    width: 70%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#hrLine {
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+}
+
+#about-header-div p {
+    cursor: pointer;
+}
+
+.active-about {
+    color: red;
+}
+
+#dishes-div {
+    display: flex;
+    flex-direction: row;
+}

@@ -7,11 +7,19 @@ import { Outlet, useNavigate } from "react-router-dom";
 export function DeliveryPage(){
     let containerRef=useRef(null);
     let brandContainerRef=useRef(null);
-    const navigate=useNavigate()
+    const navigate=useNavigate();
     function RedirectToDeliveryHotel(val){
-        let str= val.toLowerCase();
-        navigate(`/delivery/${str}`)
+        let str= val
+        navigate(`/delivery/hotel/${str}`)
     }
+
+    
+    function RedirectToDeliveryFoodItem(val){
+        let str= val.trim().toLowerCase();
+        navigate(`/delivery/food/${str}`)
+    }
+
+
     function ScrollNext(refEl){
         refEl.current.scrollLeft += 120;
     }
@@ -26,13 +34,14 @@ export function DeliveryPage(){
             <p>Inspiration for your First order</p>
         </div> 
         <div id="delivery-container" >
+            
             <div id="foods-order" ref={containerRef} >
                 <div  id="foods-order-div">
                     {
                         Object.entries(FoodImgIcons).map(([key,val])=>{
                             return <div key={val} id="food-items">
-                                <img src={val} alt="img" onClick={()=>RedirectToDeliveryHotel( key ) } />
-                                <p> {key} </p>
+                                <img src={val} alt="img" onClick={()=>RedirectToDeliveryFoodItem( key ) } />
+                                <p> {key.replace(/_/g,' ')} </p>
                             </div>
                         })
                     }
@@ -48,10 +57,10 @@ export function DeliveryPage(){
             <div  id="brand-items-div" ref={brandContainerRef} >
             <div  id="brands-order-div">
                 {
-                    Object.entries( FoodShops).map(([key,val])=>{
-                        return <div key={key} id="brand-items">
-                            <img src={val}  alt="img"/>
-                            <p>{key} </p>
+                    Object.entries( FoodShops).map(([key1,val])=>{
+                        return <div key={key1} id="brand-items">
+                            <img src={val} onClick={()=> RedirectToDeliveryHotel(key1) } alt="img"/>
+                            <p>{key1}</p>
                       </div>
 
                     })

@@ -1,9 +1,5 @@
 body {
     margin: 0;
     padding: 0;
-}
-
-.App {
-    width: 80%;
-    margin: auto;
+    font-family: sans-serif;
 }
