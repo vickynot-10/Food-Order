@@ -1,0 +1,125 @@
+#order-online-container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+}
+
+#order-online-div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#order-food-name-lists {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    position: sticky;
+    top: 39%;
+    background-color: white;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+#order-online-p {
+    color: #1C1C1C;
+    font-size: 24px;
+}
+
+#order-food-name-lists button {
+    cursor: pointer;
+    height: 50px;
+    border: unset;
+    background-color: unset;
+    color: #EF4F5F;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.activeFoodDishNav {
+    background: linear-gradient(to right, #fff5f5, #ffe6e6);
+}
+
+#order-food-image-details {
+    width: 100%;
+}
+
+#order-food-header-search {
+    display: flex;
+    justify-content: space-between;
+}
+
+#dish-search-box {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#dish-search-icon {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    transform: translate(-5%, -60%);
+}
+
+#dish-close-icon {
+    position: absolute;
+    top: 60%;
+    left: 95%;
+    transform: translate(-95%, -60%);
+    cursor: pointer;
+}
+
+#dish-search-box input {
+    margin-top: 8px;
+    width: 250px;
+    height: 50px;
+    padding: 0 35px 0 40px;
+}
+
+#food-images-details-div {
+    min-height: 80vh;
+}
+
+#food-img-contents {
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+}
+
+#food-dish-img-icon img {
+    height: 120px;
+    margin-left: 10px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#food-dish-header {
+    text-transform: capitalize;
+}
+
+#food-dish-name-order {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #1C1C1C;
+}
+
+#food-dish-cost-order {
+    font-size: 14px;
+    color: #1C1C1C;
+}
+
+#food-details-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 10px;
+    height: 100%;
+    width: 100%;
+}

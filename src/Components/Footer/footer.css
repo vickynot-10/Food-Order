@@ -5,7 +5,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FDF4F4;
     flex-direction: column;
+}
+
+#footer-tomato-header {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    transform: skewX(-15deg);
+}
+
+#country-selec {
+    display: flex;
+    flex-direction: row;
+}
+
+#country-selection-btn,
+#language-selection-btn {
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 3px 7px;
+    border: 1px solid #696969;
+    margin-right: 5px;
 }
 
 #footer-title {

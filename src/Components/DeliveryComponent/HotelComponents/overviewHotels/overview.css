@@ -1,0 +1,70 @@
+#overview-details {
+    width: 80%;
+    margin: auto;
+}
+
+#about-this-place-p {
+    color: #1C1C1C;
+    font-size: 24px;
+}
+
+#menu-text,
+#cuisines-text {
+    color: #1C1C1C;
+    font-size: 20px;
+}
+
+#overview-subtexts {
+    color: #4F4F4F;
+    font-size: 15px;
+}
+
+#total-cuisines-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: unset;
+}
+
+#cuisine-separate-div {
+    width: auto;
+    margin: 0 10px 0 0;
+    padding: 8px;
+    border-radius: 20px;
+    color: #119199;
+    border: 1px solid #119199;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+#more-info-div {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 40%;
+}
+
+#separate-info-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#separate-info-div p {
+    font-size: 16px;
+    color: #4F4F4F;
+    margin-left: 5px;
+}
+
+#separate-info-div div {
+    height: 20px;
+    width: 20px;
+    border: 1px solid #119199;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
