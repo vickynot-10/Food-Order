@@ -1,9 +1,18 @@
 import { FoodshopDeatilsModel } from '../Models/FoodShopDetails.js';
-import express, { json } from 'express';
+import express, { json, urlencoded } from 'express';
+import cors from 'cors';
+
 import { FoodDetailsModel } from '../Models/FoodsDetails.js';
+import { UserControllers } from '../Controllers/userscontroller.js';
 const app = express()
 const routes = express.Router();
-app.use(json())
+app.use(express.json())
+
+app.use(cors())
+app.use(express.urlencoded({ extended: true }))
+
+routes.post('/register',UserControllers)
+
 
 function formatText(str) {
     if (str.toLowerCase() == "mcdonald's") {
