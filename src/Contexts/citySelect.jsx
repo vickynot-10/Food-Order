@@ -1,8 +1,8 @@
-import { useContext,createContext,useState, Children } from "react";
+import { useContext,createContext,useState } from "react";
 const cityContext = createContext();
 
 export const CityNameProvider=({children})=>{
-    const [selectCity,setCity] = useState(' ')
+    const [selectCity,setCity] = useState("")
     return (
         <cityContext.Provider value={
             {selectCity,setCity}

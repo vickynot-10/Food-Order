@@ -3,27 +3,33 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 import CloseOutlined from "@mui/icons-material/CloseOutlined";
+import  Alert  from "@mui/material/Alert";
+import  CircularProgress  from '@mui/material/CircularProgress';
+import { useNav } from "../../../../Contexts/context";
+
 export function OrderOnline({ hotelName }) {
-  const [foodDishNav, setFoodDishNav] = useState(" ");
+  const {setActive} = useNav();
+  setActive('delivery')
+  
   const [HotelfoodDetails, setHotelFoodDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [uniqueFoodNames, setUniqueNames] = useState([]);
   const [filterFoodSection, setFilterFoods] = useState([]);
-
+  const [foodDishNav, setFoodDishNav] = useState(" ");
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await axios.get(`http://localhost:4040/${hotelName}/foods`);
-        if (!res) {
+        if (!res || !res.data ) {
           throw new Error("Network response was not ok");
         }
-        setHotelFoodDetails(res.data);
         const uniqueFoods = Array.from(
           new Set(res.data.map((item) => item.Foodname))
         );
         setUniqueNames(uniqueFoods);
         setHotelFoodDetails(res.data);
+        
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,7 +37,7 @@ export function OrderOnline({ hotelName }) {
       }
     }
     fetchData();
-  }, []);
+  }, [hotelName]);
   function filterFoodsOnNav(e) {
     const str = e.target.value;
     setFoodDishNav(str);
@@ -40,6 +46,15 @@ export function OrderOnline({ hotelName }) {
 
   return (
     <div id="order-online-container">
+       {
+         loading ? <div style={{
+          display:'flex',justifyContent:"center",alignItems:"center"
+         }}> <CircularProgress size={100}  />  </div>
+        : 
+        error ? <Alert variant="filled" severity="error" sx={{
+            height:'40px' , width:'auto'
+        }} >{error}</Alert> : 
+        <>    
       <div id="order-online-div">
         <div id="order-food-name-lists">
           {uniqueFoodNames.map((val, key) => {
@@ -60,14 +75,23 @@ export function OrderOnline({ hotelName }) {
           <div id="order-food-header-search">
             <p id="order-online-p">Order Online</p>
             <div id="dish-search-box">
+            <input type="text" />
               <span id="dish-search-icon">
                 
-                <SearchOutlined />
+                <SearchOutlined  sx={{
+                  fontSize:{
+                    xs:16 , sm:18,md:20,lg:22
+                  }
+                }} />
               </span>
-              <input type="text" />
               <span id="dish-close-icon">
+                <CloseOutlined sx={{
+                  fontSize:{
+                    xs:16 , sm:18,md:20,lg:22
+                  }
+                }}
                 
-                <CloseOutlined />
+                />
               </span>
             </div>
           </div>
@@ -99,6 +123,8 @@ export function OrderOnline({ hotelName }) {
           </div>
         </div>
       </div>
+      </>
+       }
     </div>
   );
 }

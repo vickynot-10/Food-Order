@@ -15,7 +15,6 @@
 
 #options-btn {
     border: unset;
-    font-size: 20px;
     margin: 0 10px;
     text-decoration: none;
     background-color: unset;
@@ -38,16 +37,17 @@
     background-color: #fffdaf;
 }
 
-#options-btn a {
+.choose-btn-p {
+    font-size: clamp(12px, 2vw, 24px);
     text-decoration: none;
     color: black;
 }
 
 .active {
+    font-size: clamp(12px, 2vw, 24px);
+    text-decoration: none;
     position: relative;
-    top: 0%;
-    left: 0%;
-    color: red;
+    color: #EF4F5F;
 }
 
 .active::before {
@@ -57,7 +57,7 @@
     bottom: -50%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: red;
+    background-color: #EF4F5F;
     width: 0px;
     animation: WidthLine linear 0.2s forwards;
 }
@@ -68,5 +68,38 @@
     }
     100% {
         width: 100%;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:480px) {
+    #choose-options-div {
+        width: 100%;
+    }
+    #icon-div {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    #choose-opt-container {
+        width: 80%;
+        margin: unset;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px) {
+    #choose-options-div {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+    #choose-options-div {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:961px) and (max-width:1024px) {
+    #choose-options-div {
+        width: 65%;
     }
 }

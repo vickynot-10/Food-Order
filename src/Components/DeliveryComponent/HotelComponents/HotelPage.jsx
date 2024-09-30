@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { FoodShops, FoodShopsDetails } from "../../../Data/data";
+import { FoodShops } from "../../../Data/data";
 import { useCity } from "../../../Contexts/citySelect";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -10,24 +10,45 @@ import Share from "@mui/icons-material/ShareOutlined";
 import { OverviewSection } from "./overviewHotels/overview";
 import { useState,useEffect } from "react";
 import { OrderOnline } from "./orderonlineFoods/orderOnline";
+import { useNav } from "../../../Contexts/context";
+import  Alert  from "@mui/material/Alert";
+import { CircularProgress } from '@mui/material';
 export function HotelPage() {
+  const {setActive} = useNav();
+  setActive('delivery')
   const [isActiveOverview, setActiveOverview] = useState("overview");
   const { hotelPage } = useParams();
   const { selectCity } = useCity();
   const HotelImgs = FoodShops[hotelPage];
   const [hoteldetails,setHotelDetails]= useState({})
+  const [err,seterr]=useState(null);
+  const [isLoading,setLoading]=useState(true);
   useEffect(()=>{
-    document.title=`${hotelPage},${selectCity}`;
+    document.title=`${hotelPage}`;
   },[])
 let hotelNameLowercase = hotelPage.toLocaleLowerCase()
   useEffect(()=>{
     async function fetchData(){
       try{
         let res = await axios.get(`http://localhost:4040/delivery/hotel/${hotelNameLowercase}`);
-        setHotelDetails(res.data)
+        if(!res || !res.data ){
+          throw new Error('Network response was not ok')
+       }
+      setHotelDetails(res.data);
+      seterr(null)
       }
-      catch(e){
-        console.log(e)
+      catch(e){    
+        let errMsg = "Something error occur"
+        if(e.response.data){
+          errMsg = e.response.data
+        }
+        else if(e.message){
+        errMsg = e.message;
+        }
+        seterr(errMsg);
+      }
+      finally{
+        setLoading(false);
       }
     }
     fetchData()
@@ -36,39 +57,50 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
 
   return (
     <div id="hotelpage-container">
+      {
+        isLoading ? <div
+        style={{
+          display:'flex',justifyContent:'center',alignItems:'center',
+        }}
+        
+        >
+          <CircularProgress size={100} /> 
+          </div> : err ? <Alert variant="filled" severity="error" sx={{
+            height:'40px' , width:'auto'
+        }} >{err}</Alert> : <>
       <div id="hotel-contents">
         <div id="hotel-imgs">
           <div id="main-hotel-img">
             <motion.img src={HotelImgs} alt="hotel-img"
-            //  initial={{
-            //   opacity:1
-            // }}
-            // whileHover={{
-            //   opacity:0.8
-            // }}
-            // 
+             initial={{
+              opacity:1
+            }}
+            whileHover={{
+              opacity:0.8
+            }}
+            
              />
           </div>
           <div id="secondary-hotel-img">
             <motion.img 
-            // initial={ {opacity:1}  }
-            // whileHover={{
-            //   opacity:0.8
-            // }}
+            initial={ {opacity:1}  }
+            whileHover={{
+              opacity:0.8
+            }}
              src={HotelImgs} alt="hotel-img" />
             <motion.img 
-            // initial={ {opacity:1}  }
-            // whileHover={{
-            //   opacity:0.8, scale:1
-            // }} 
+            initial={ {opacity:1}  }
+            whileHover={{
+              opacity:0.8, scale:1
+            }} 
             src={HotelImgs} alt="hotel-img" />
           </div>
           <div id="third-hotel-img">
             <motion.img 
-            // initial={ {opacity:1}  }
-            // whileHover={{
-            //   opacity:0.8
-            // }}
+            initial={ {opacity:1}  }
+            whileHover={{
+              opacity:0.8
+            }}
              src={HotelImgs} alt="hotel-img" />
           </div>
         </div>
@@ -76,7 +108,7 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
       <div id="hotel-details">
         <div id="div-for-sticky">
           <div id="hotel-details-header1">
-            <h1 id="hotel-name-header" > {hotelPage} </h1>
+            <p id="hotel-name-header" > {hotelPage} </p>
             <p id="hotel-subtexts-header"> {hoteldetails.hotelFoodTypes} </p>
             <p id="hotel-subtexts-header2"> {selectCity} </p>
             
@@ -90,17 +122,17 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
           transition={{
             ease:"easeInOut"
           }}
-          
           >
-            <span>    
+             
               <Directions
                 sx={{
-                  color: "red",
-                  height: "16px",
-                  width: "16px"
+                  fontSize:{
+                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
+                  },
+                  margin:'auto 0'
                 }}
               />
-              Direction
+              <span>  Direction
             </span>
           </motion.div>
           <motion.div 
@@ -114,17 +146,17 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
           
           >
             
-            <span>
+            
               
               <BookmarkAdd
                 sx={{
-                  color: "red",
-                  height: "16px",
-                  width: "16px",
-                  
+                  fontSize:{
+                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
+                  },
+                  margin:'auto 0'
                 }}
               />
-              Bookmark
+            <span>  Bookmark
             </span>
           </motion.div>
 
@@ -139,21 +171,20 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
           
           >
             
-            <span>
               
               <Share
                 sx={{
-                  color: "red",
-                  height: "16px",
-                  width: "16px",
-                  
+                  fontSize:{
+                    xs:'12px',sm:'14px',md:'16px',lg:'16px'
+                  },
+                  margin:'auto 0'
                 }}
               />
-              Share
+            
+            <span>  Share
             </span>
           </motion.div>
          </div>
-        <div id="about-hotel-div">
           <div id="about-header-div">
             <p
               onClick={() => setActiveOverview("overview")}
@@ -186,7 +217,7 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
               Menu
             </p>
           </div>
-          </div>
+          
         
           <div id="hrLine"></div>
           </div>
@@ -195,7 +226,11 @@ let hotelNameLowercase = hotelPage.toLocaleLowerCase()
           ) : (
             <OrderOnline hotelName={hotelPage} />
           )}
+
+      
         </div>
+        </>
+        }
       </div>
     
   );

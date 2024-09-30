@@ -4,7 +4,10 @@ import axios from "axios";
 import Check from "@mui/icons-material/Check";
 import  Alert  from "@mui/material/Alert";
 import  CircularProgress  from "@mui/material/CircularProgress";
+import { useNav } from "../../../../Contexts/context";
 export function OverviewSection( {hotelName} ) {
+  const {setActive} = useNav();
+  setActive('delivery')
   const [hotelDetails,setHotelDetails]=useState({})
   const [loading,setLoading] = useState(true)
   const [error, setError] = useState(null);
@@ -12,20 +15,19 @@ export function OverviewSection( {hotelName} ) {
     async function fetchData(){
       try{
         let res = await axios.get(`http://localhost:4040/delivery/hotel/${hotelName}`);
-         if(!res){
+         if(!res || !res.data ){
           throw new Error('Network response was not ok')
          }
          setHotelDetails(res.data); 
       }catch (err) {
         setError(err.message);
-        console.log(err.message)
     }
     finally{
       setLoading(false)
     }
     }
     fetchData()
-  },[])
+  },[hotelName])
   
   return (
 

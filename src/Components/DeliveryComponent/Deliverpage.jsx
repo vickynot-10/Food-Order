@@ -1,10 +1,15 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FoodImgIcons,FoodShops } from "../../Data/data";
 import  KeyboardArrowLeftRounded from "@mui/icons-material/KeyboardArrowLeftRounded";
 import  KeyboardArrowRightRounded  from "@mui/icons-material/KeyboardArrowRightRounded";
 import './Deliverypage.css';
 import { Outlet, useNavigate } from "react-router-dom";
+import { useNav } from "../../Contexts/context";
 export function DeliveryPage(){
+    const {setActive} = useNav();
+    useEffect(()=>{
+    setActive('delivery') 
+    },[])
     let containerRef=useRef(null);
     let brandContainerRef=useRef(null);
     const navigate=useNavigate();
@@ -12,8 +17,6 @@ export function DeliveryPage(){
         let str= val
         navigate(`/delivery/hotel/${str}`)
     }
-
-    
     function RedirectToDeliveryFoodItem(val){
         let str= val.trim().toLowerCase();
         navigate(`/delivery/food/${str}`)
